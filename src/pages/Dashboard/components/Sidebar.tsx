@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[344px] mt-14 bg-[#FF6767] text-white rounded-lg shadow-md flex-shrink-0 flex flex-col">
+    <div className="w-full max-w-[344px] bg-[#FF6767] text-white rounded-lg shadow-md flex-shrink-0 flex flex-col">
       {/* User Info */}
       <div className="pt-8 pl-10 pb-4">
         <h3 className="text-3xl font-medium">{firstName} {lastName}</h3>

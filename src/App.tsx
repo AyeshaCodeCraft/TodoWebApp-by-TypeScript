@@ -1,61 +1,18 @@
 
 
-
-
-
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home/Home";
-// import SignUp from "./pages/Auth/SignUp/SignUp";
-// import SignIn from "./pages/Auth/SignIn/SignIn"; 
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         {/* Public routes */}
-//         <Route path="/" element={<Home />} />
-
-//         <Route path="/signup" element={<SignUp />} />
-
-//         {/* ✅ Add this route to test SignIn */}
-//         <Route path="/signin" element={<SignIn />} />
-
-//         {/* Later you can wrap them with PublicRoute / ProtectedRoute */}
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import SignUp from "./pages/Auth/SignUp/SignUp";
 import SignIn from "./pages/Auth/SignIn/SignIn";
 import Dashboard from "./pages/Dashboard/Dashboard";
-// import Settings from "./pages/Dashboard/Settings/Settings";
 import DashboardHome from "./pages/Dashboard/DashboardHome/DashboardHome";
-
-// import NotFound from "./pages/NotFound/NotFound";
-
-// import MyTasks from "./pages/Dashboard/MyTasks/MyTasks"
-// import VitalTasks from "./pages/Dashboard/VitalTasks/VitalTasks";
+import VitalTasks from "./pages/Dashboard/VitalTasks/VitalTasks";
+import MyTasks from "./pages/Dashboard/MyTasks/MyTasks";
+import Settings from "./pages/Dashboard/Settings/Settings";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import PublicRoute from "./routes/PublicRoute";
-  
+
 function Categories() {
   return <div style={{ paddingLeft: "380px" }}>Categories Page</div>;
 }
@@ -97,16 +54,15 @@ function App() {
         >
           {/* default dashboard page */}
           <Route index element={<DashboardHome />} />
-
-          {/* nested pages */}
-          {/* <Route path="vital-task" element={<VitalTasks />} />
+          <Route path="vital-task" element={<VitalTasks />} />
           <Route path="my-task" element={<MyTasks />} />
           <Route path="categories" element={<Categories />} />
-          <Route path="settings" element={<Settings />} /> */}
+          <Route path="settings" element={<Settings/>} />
           <Route path="help" element={<Help />} />
         </Route>
 
-        {/* <Route path="*" element={<NotFound />} /> */}
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );

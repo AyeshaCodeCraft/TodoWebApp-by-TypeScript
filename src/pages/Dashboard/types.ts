@@ -1,5 +1,4 @@
 
-
 // src/pages/Dashboard/types.ts
 export type Priority = "Low" | "Moderate" | "Extreme" | "";
 export type Status = "Not Started" | "In Progress" | "Completed";

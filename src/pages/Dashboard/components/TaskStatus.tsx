@@ -16,6 +16,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, color }
   const dashArray = 100;
   const dashOffset = dashArray - percentage;
 
+
   return (
     <svg viewBox="0 0 36 36" className="w-24 h-24 -rotate-90">
       {/* Background circle */}
@@ -63,7 +64,7 @@ const TaskStatus: React.FC<TaskStatusProps> = ({ completedPct, inProgressPct, no
   ];
 
   return (
-    <div className="bg-white rounded-xl p-4 shadow-sm flex flex-col">
+    <div className="rounded-xl p-4 shadow-sm flex flex-col">
       {/* Header */}
       <div className="flex items-center gap-2 mb-4">
         <img src={inProgressIcon} alt="in-progress" className="w-5 h-5" />
@@ -76,7 +77,7 @@ const TaskStatus: React.FC<TaskStatusProps> = ({ completedPct, inProgressPct, no
           <div key={circle.label} className="flex flex-col items-center">
             <CircularProgress percentage={circle.percentage} color={circle.color} />
             <div className="flex items-center gap-1.5 mt-1 text-sm">
-              <img src={circle.dot} alt={circle.label} className="w-3 h-3" />
+              <img src={circle.dot} alt={circle.label} className="w-2 h-2" />
               <span>{circle.label}</span>
             </div>
           </div>

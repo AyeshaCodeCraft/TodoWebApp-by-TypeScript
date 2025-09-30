@@ -120,7 +120,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
   const priorityClass = task.priority ? task.priority.toLowerCase() : "low";
 
   return (
-    <div className="border border-gray-300 rounded-xl p-4 mb-5 flex flex-col gap-4 shadow-sm bg-white">
+    <div className="border border-gray-300 rounded-xl p-4 mb-5 flex flex-col gap-4 shadow-sm">
       <div className="flex items-center gap-2">
         <div
           className={`w-3.5 h-3.5 rounded-full border-2 ${statusColors[statusClass]}`}
