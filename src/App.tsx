@@ -4,11 +4,64 @@
 
 
 
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Home from "./pages/Home/Home";
+// import SignUp from "./pages/Auth/SignUp/SignUp";
+// import SignIn from "./pages/Auth/SignIn/SignIn"; 
+
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         {/* Public routes */}
+//         <Route path="/" element={<Home />} />
+
+//         <Route path="/signup" element={<SignUp />} />
+
+//         {/* ✅ Add this route to test SignIn */}
+//         <Route path="/signin" element={<SignIn />} />
+
+//         {/* Later you can wrap them with PublicRoute / ProtectedRoute */}
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import SignUp from "./pages/Auth/SignUp/SignUp";
-import SignIn from "./pages/Auth/SignIn/SignIn"; 
+import SignIn from "./pages/Auth/SignIn/SignIn";
+import Dashboard from "./pages/Dashboard/Dashboard";
+// import Settings from "./pages/Dashboard/Settings/Settings";
+import DashboardHome from "./pages/Dashboard/DashboardHome/DashboardHome";
 
+// import NotFound from "./pages/NotFound/NotFound";
+
+// import MyTasks from "./pages/Dashboard/MyTasks/MyTasks"
+// import VitalTasks from "./pages/Dashboard/VitalTasks/VitalTasks";
+
+import ProtectedRoute from "./routes/ProtectedRoute";
+import PublicRoute from "./routes/PublicRoute";
+  
+function Categories() {
+  return <div style={{ paddingLeft: "380px" }}>Categories Page</div>;
+}
+function Help() {
+  return <div style={{ paddingLeft: "380px" }}>Help Page</div>;
+}
 
 function App() {
   return (
@@ -16,104 +69,47 @@ function App() {
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Home />} />
+        <Route
+          path="/signup"
+          element={
+            <PublicRoute>
+              <SignUp />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoute>
+              <SignIn />
+            </PublicRoute>
+          }
+        />
 
-        <Route path="/signup" element={<SignUp />} />
+        {/* Dashboard routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
+          {/* default dashboard page */}
+          <Route index element={<DashboardHome />} />
 
-        {/* ✅ Add this route to test SignIn */}
-        <Route path="/signin" element={<SignIn />} />
+          {/* nested pages */}
+          {/* <Route path="vital-task" element={<VitalTasks />} />
+          <Route path="my-task" element={<MyTasks />} />
+          <Route path="categories" element={<Categories />} />
+          <Route path="settings" element={<Settings />} /> */}
+          <Route path="help" element={<Help />} />
+        </Route>
 
-        {/* Later you can wrap them with PublicRoute / ProtectedRoute */}
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home/Home";
-// import SignUp from "./pages/Auth/SignUp/SignUp";
-// import SignIn from "./pages/Auth/SignIn/SignIn"; 
-// import PublicRoute from "./routes/PublicRoute";
-// import ProtectedRoute from "./routes/ProtectedRoute";
-
-// function Categories() {
-//   return <div style={{ paddingLeft: "380px" }}>Categories Page</div>;
-// }
-// function Help() {
-//   return <div style={{ paddingLeft: "380px" }}>Help Page</div>;
-// }
-
-// function Dashboard() {
-//   return <div style={{ paddingLeft: "380px" }}>Dashboard Page</div>;
-// }
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         {/* Public route (always accessible) */}
-//         <Route path="/" element={<Home />} />
-
-//         {/* Public auth routes (redirect if logged in) */}
-//         <Route
-//           path="/signup"
-//           element={
-//             <PublicRoute>
-//               <SignUp />
-//             </PublicRoute>
-//           }
-//         />
-//         <Route
-//           path="/signin"
-//           element={
-//             <PublicRoute>
-//               <SignIn />
-//             </PublicRoute>
-//           }
-//         />
-
-//         {/* Protected route (only for logged-in users) */}
-//         <Route
-//           path="/dashboard"
-//           element={
-//             <ProtectedRoute>
-//               <Dashboard />
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         {/* Example additional protected routes */}
-//         <Route
-//           path="/categories"
-//           element={
-//             <ProtectedRoute>
-//               <Categories />
-//             </ProtectedRoute>
-//           }
-//         />
-//         <Route
-//           path="/help"
-//           element={
-//             <ProtectedRoute>
-//               <Help />
-//             </ProtectedRoute>
-//           }
-//         />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
