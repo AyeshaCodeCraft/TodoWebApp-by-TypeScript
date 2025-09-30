@@ -16,6 +16,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, color }
   const dashArray = 100;
   const dashOffset = dashArray - percentage;
 
+  console.log(radius)
 
   return (
     <svg viewBox="0 0 36 36" className="w-24 h-24 -rotate-90">
